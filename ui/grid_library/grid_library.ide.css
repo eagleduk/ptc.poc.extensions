@@ -1,0 +1,9 @@
+/* Place custom CSS styling for grid library widget in Composer in this file */
+
+.widget-grid_library,
+.widgets-grid-icon {
+  background-image: url("logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

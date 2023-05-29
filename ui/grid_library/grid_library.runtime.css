@@ -1,0 +1,12 @@
+/* Place custom CSS styling for grid library widget at runtime in this file */
+
+.widget-grid_library {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.display-hidden {
+  display: none;
+}

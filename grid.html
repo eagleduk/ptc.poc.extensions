@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+        }
+
+        html {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+        }
+
+        main>div {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <button id="aggrid">aggrid</button>
+        <button id="handsontable">Handsontable</button>
+        <button id="webix">webix</button>
+    </div>
+
+    <main>
+        <!-- AG Grid -->
+        <script src="./ui/grid_library/js/aggrid/ag-grid-enterprise.min.js">
+        </script>
+        <div id="myGrid" class="ag-theme-alpine"></div>
+        <script>
+            const columnDefs = [
+                { field: "Film title", sortable: true },
+                { field: "Released", sortable: true },
+                { field: "Votes", sortable: true },
+                { field: "Rating", sortable: true },
+                { field: "Rank", sortable: true },
+                { field: "Category", sortable: true }
+            ];
+
+            // specify the data
+            const rowData = [
+                { "Film title": "The Shawshank Redemption", Released: 1994, Votes: 678790, Rating: 9.2, Rank: 1, Category: "Thriller" },
+                { "Film title": "The Godfather", Released: 1972, Votes: 511495, Rating: 9.2, Rank: 2, Category: "Crime" },
+                { "Film title": "The Godfather: Part II", Released: 1974, Votes: 319352, Rating: 9.0, Rank: 3, Category: "Crime" },
+                { "Film title": "The Good, the Bad and the Ugly", Released: 1966, Votes: 213030, Rating: 8.9, Rank: 4, Category: "Western" },
+                { "Film title": "Pulp fiction", Released: 1994, Votes: 533848, Rating: 8.9, Rank: 5, Category: "Crime" },
+                { "Film title": "12 Angry Men", Released: 1957, Votes: 164558, Rating: 8.9, Rank: 6, Category: "Western" },
+            ];
+
+            // let the grid know which columns and what data to use
+            const gridOptions = {
+                columnDefs: columnDefs,
+                rowData: rowData,
+                enableRangeSelection: true,
+                copyHeadersToClipboard: true,
+                defaultColDef: {
+                    resizable: true,
+                },
+            };
+
+            // setup the grid after the page has finished loading
+            document.getElementById("aggrid").addEventListener('click', () => {
+                const gridDiv = document.querySelector('#myGrid');
+                const aggrid = new agGrid.Grid(gridDiv, gridOptions);
+                globalThis.aggrid = aggrid;
+            });
+        </script>
+
+        <!-- handsontable Grid -->
+        <script src="./ui/grid_library/js/handsontable/handsontable.full.min.js">
+        </script>
+        <link rel="stylesheet" href="./ui/grid_library/js/handsontable/handsontable.full.min.css" />
+
+        <div id="example"></div>
+        <script>
+            document.getElementById("handsontable").addEventListener("click", (e) => {
+                const container = document.querySelector('#example');
+
+                const hot = new Handsontable(container, {
+                    data: [
+                        //["Film title", "Released", "Votes", "Rating", "Rank", "Category"],
+                        ["The Shawshank Redemption", 1994, 678790, 9.2, 1, "Thriller"],
+                        ["The Godfather", 1972, 511495, 9.2, 2, "Crime"],
+                        ["The Godfather: Part II", 1974, 319352, 9.0, 3, "Crime"],
+                        ["The Good, the Bad and the Ugly", 1966, 213030, 8.9, 4, "Western"],
+                        ["Pulp fiction", 1994, 533848, 8.9, 5, "Crime"],
+                        ["12 Angry Men", 1957, 164558, 8.9, 6, "Western"]
+                    ],
+                    rowHeaders: false,
+                    colHeaders: ["Film title", "Released", "Votes", "Rating", "Rank", "Category"],
+                    width: '100%',
+                    height: '100%',
+                    columnSorting: true,
+                    copyPaste: {
+                        copyColumnHeaders: true,
+                        copyColumnGroupHeaders: true,
+                        copyColumnHeadersOnly: true,
+                    },
+                    licenseKey: 'non-commercial-and-evaluation' // for non-commercial use only
+                });
+                globalThis.hot = hot;
+            })
+        </script>
+
+        <link rel="stylesheet" href="./ui/grid_library/js/webix/webix.css" type="text/css">
+        <script src="./ui/grid_library/js/webix/webix.js" type="text/javascript"></script>
+        <div id="layout"></div>
+        <script>
+            document.getElementById("webix").addEventListener("click", (e) => {
+                globalThis.webixxx = webix.ui({
+                    container: "layout",
+                    view: "datatable",
+                    columns: [
+                        { id: "title", header: "Film title", fillspace: true },
+                        { id: "year", header: "Released", width: 80 },
+                        { id: "votes", header: "Votes", width: 100 },
+                        { id: "rating", header: "Rating", width: 100 },
+                        { id: "rank", header: "Rank", width: 100 },
+                        { id: "category", header: "Category", width: 100 }
+                    ],
+                    select: "cell",
+                    multiselect: true,
+                    blockselect: true,
+                    clipboard: "block",
+                    scroll: false,
+                    data: [
+                        { id: 1, title: "The Shawshank Redemption", year: 1994, votes: 678790, rating: 9.2, rank: 1, category: "Thriller" },
+                        { id: 2, title: "The Godfather", year: 1972, votes: 511495, rating: 9.2, rank: 2, category: "Crime" },
+                        { id: 3, title: "The Godfather: Part II", year: 1974, votes: 319352, rating: 9.0, rank: 3, category: "Crime" },
+                        { id: 4, title: "The Good, the Bad and the Ugly", year: 1966, votes: 213030, rating: 8.9, rank: 4, category: "Western" },
+                        { id: 5, title: "Pulp fiction", year: 1994, votes: 533848, rating: 8.9, rank: 5, category: "Crime" },
+                        { id: 6, title: "12 Angry Men", year: 1957, votes: 164558, rating: 8.9, rank: 6, category: "Western" }
+                    ]
+                });
+            });
+        </script>
+    </main>
+
+</body>
+
+</html>

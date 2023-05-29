@@ -1,0 +1,9 @@
+/* Place custom CSS styling for jira widget in Composer in this file */
+
+.widget-jira,
+.widgets-jira-icon {
+  background-image: url("Jira.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

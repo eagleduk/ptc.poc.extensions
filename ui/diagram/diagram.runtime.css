@@ -1,0 +1,16 @@
+/* Place custom CSS styling for diagram widget at runtime in this file */
+
+.widget-diagram {
+  margin: 0px;
+  /* width: 100vw;
+    height: 100vh; */
+  position: relative;
+}
+
+.widget-diagram .widget-kpi_diagram-diagram {
+  margin: 0;
+  background: transparent;
+  border: 0px solid black;
+  width: 100%;
+  height: 100%;
+}

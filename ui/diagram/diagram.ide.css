@@ -1,0 +1,9 @@
+/* Place custom CSS styling for diagram widget in Composer in this file */
+
+.widget-diagram,
+.widgets-diagram-icon {
+  background-image: url("logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

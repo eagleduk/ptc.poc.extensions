@@ -1,0 +1,10 @@
+/* Place custom CSS styling for watermark widget in Composer in this file */
+
+.widget-watermark {
+}
+
+.widgets-watermark-icon {
+  background-image: url("water.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}

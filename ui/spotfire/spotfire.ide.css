@@ -1,0 +1,9 @@
+/* Place custom CSS styling for spotfire widget in Composer in this file */
+
+.widget-spotfire,
+.widgets-spotfire-icon {
+  background-image: url("2065619.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

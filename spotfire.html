@@ -1,0 +1,107 @@
+<!-- 
+    https://community.tibco.com/s/article/TIBCO-Spotfire-JavaScript-API-Overview#introduction
+https://docs.tibco.com/pub/sfire_dev/area/doc/api/TIB_sfire_Web_Player_JavaScript_API_Reference/html/T_spotfire_webPlayer_AuthenticationSettings.htm 
+
+-->
+
+
+<html>
+
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+
+        select {
+            margin: 5px;
+            padding: 5px 10px;
+        }
+
+        #container {
+            padding: 8px;
+            height: 100%;
+        }
+    </style>
+    <script src="https://spotfire-next.cloud.tibco.com/spotfire/js-api/loader.js"></script>
+    <script type="text/javascript"
+        src="https://spotfire-next.cloud.tibco.com/spotfire/wp/GetJavaScriptApi.ashx?Version=12.4">
+        </script>
+</head>
+
+<body>
+    <div>
+        <select name="path" id="path">
+        </select>
+
+        <a href="https://spotfire-next.cloud.tibco.com/spotfire/wp" target="_blank">
+            LINK
+        </a>
+    </div>
+    <div id="container"></div>
+
+    <script>
+
+        var paths = [
+            "/Sample Data Functions/TERR/TERR_FitLogisticRegression_Kyphosis",
+            "/Samples/Analyzing Stock Performance",
+            "/Samples/Configuring Advanced Visualizations",
+            "/Samples/Expense Analyzer Dashboard",
+            "/Samples/Introduction to Spotfire",
+            "/Samples/Sales and Marketing",
+            "/Sample Data Functions/TERR/TERR_CorrelationTable_Prim9",
+            "/Sample Data Functions/TERR/TERR_LinearlyAdjust_Baseball",
+            "/Sample Data Functions/TERR/TERR_LinearRegressionFitAndPrediction_SeattleHousing",
+            "/Sample Data Functions/TERR/TERR_PairsPlot_Store",
+            "/Sample Data Functions/TERR/TERR_PCA_Cars"
+            , "/Sample Data Functions/TERR/TERR_PredictOnASequence_Kyphosis"
+            , "/Sample Data Functions/TERR/TERR_SimpleLeastSquaresRegression_Ozone"
+            , "/Sample Data Functions/TERR/TERR_SplineModel_Wind"
+            , "/TIBCO Community Mods/Try TIBCO Community Mods"
+        ]
+
+        var serverUrl = "https://spotfire-next.cloud.tibco.com/spotfire/wp/";
+        var analysisPath = "/Sample Data Functions/TERR/TERR_FitLogisticRegression_Kyphosis";
+        var customizationInfo = new spotfire.webPlayer.Customization();
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            var customization = {
+                showDodPanel: false,
+                showStatusBar: false,
+                showToolBar: false,
+                showFilterPanel: false,
+                showPageNavigation: false
+            }
+            new spotfire.webPlayer.Application(serverUrl,
+                customizationInfo,
+                analysisPath).openDocument("container", "title", customization);
+
+            const selection = document.getElementById("path");
+            paths.forEach(path => {
+                const option = document.createElement("option");
+                option.value = path;
+                option.textContent = path;
+
+                selection.appendChild(option);
+            });
+
+            selection.addEventListener("change", (e) => {
+                const selectPath = e.target.value;
+                new spotfire.webPlayer.Application(serverUrl,
+                    customizationInfo,
+                    selectPath).openDocument("container", "title", customization);
+            })
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+/* Place custom CSS styling for watermark widget at runtime in this file */
+
+.widget-watermark {
+  width: 100vw;
+  height: 100vh;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
