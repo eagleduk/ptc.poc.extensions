@@ -103,6 +103,12 @@
             <UIResources>
                 <FileResource
                  description="grid_library"
+                 file="./js/aggrid/ag-grid-enterprise.min.js"
+                 isDevelopment="true"
+                 isRuntime="true"
+                 type="JS"></FileResource>
+                <FileResource
+                 description="grid_library"
                  file="./js/handsontable/handsontable.full.min.css"
                  isDevelopment="true"
                  isRuntime="true"
