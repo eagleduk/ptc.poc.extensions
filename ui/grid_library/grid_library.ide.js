@@ -13,20 +13,20 @@ TW.IDE.Widgets.grid_library = function () {
           baseType: "STRING",
           defaultValue: "grid type",
           isBindingTarget: true,
-          defaultValue: "aggrid",
+          defaultValue: "handsontable",
           selectOptions: [
-            {
-              value: "aggrid",
-              text: "AG Grid",
-            },
+            // {
+            //   value: "aggrid",
+            //   text: "AG Grid",
+            // },
             {
               value: "handsontable",
               text: "Handsontable Grid",
             },
-            {
-              value: "webix",
-              text: "Webix Grid",
-            },
+            // {
+            //   value: "webix",
+            //   text: "Webix Grid",
+            // },
           ],
         },
       },

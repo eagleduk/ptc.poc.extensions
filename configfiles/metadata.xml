@@ -103,12 +103,6 @@
             <UIResources>
                 <FileResource
                  description="grid_library"
-                 file="./js/aggrid/ag-grid-enterprise.min.js"
-                 isDevelopment="true"
-                 isRuntime="true"
-                 type="JS"></FileResource>
-                <FileResource
-                 description="grid_library"
                  file="./js/handsontable/handsontable.full.min.css"
                  isDevelopment="true"
                  isRuntime="true"
@@ -116,18 +110,6 @@
                 <FileResource
                  description="grid_library"
                  file="./js/handsontable/handsontable.full.min.js"
-                 isDevelopment="true"
-                 isRuntime="true"
-                 type="JS"></FileResource>
-                <FileResource
-                 description="grid_library"
-                 file="./js/webix/webix.css"
-                 isDevelopment="true"
-                 isRuntime="true"
-                 type="CSS"></FileResource>
-                <FileResource
-                 description="grid_library"
-                 file="./js/webix/webix.js"
                  isDevelopment="true"
                  isRuntime="true"
                  type="JS"></FileResource>
