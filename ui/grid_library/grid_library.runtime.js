@@ -74,46 +74,46 @@ TW.Runtime.Widgets.grid_library = function () {
     //   },
     //   remove: (object) => object?.destroy(),
     // },
-    {
-      type: "handsontable",
-      render: (id) => {
-        try {
-          return new Handsontable(document.getElementById(id), {
-            data: [
-              ["The Shawshank Redemption", 1994, 678790, 9.2, 1, "Thriller"],
-              ["The Godfather", 1972, 511495, 9.2, 2, "Crime"],
-              ["The Godfather: Part II", 1974, 319352, 9.0, 3, "Crime"],
-              [
-                "The Good, the Bad and the Ugly",
-                1966,
-                213030,
-                8.9,
-                4,
-                "Western",
-              ],
-              ["Pulp fiction", 1994, 533848, 8.9, 5, "Crime"],
-              ["12 Angry Men", 1957, 164558, 8.9, 6, "Western"],
-            ],
-            rowHeaders: false,
-            columnSorting: true,
-            colHeaders: [
-              "Film title",
-              "Released",
-              "Votes",
-              "Rating",
-              "Rank",
-              "Category",
-            ],
-            width: "100%",
-            height: "100%",
-            licenseKey: "non-commercial-and-evaluation", // for non-commercial use only
-          });
-        } catch (e) {
-          console.log(id, e);
-        }
-      },
-      remove: (object) => object?.destroy(),
-    },
+    // {
+    //   type: "handsontable",
+    //   render: (id) => {
+    //     try {
+    //       return new Handsontable(document.getElementById(id), {
+    //         data: [
+    //           ["The Shawshank Redemption", 1994, 678790, 9.2, 1, "Thriller"],
+    //           ["The Godfather", 1972, 511495, 9.2, 2, "Crime"],
+    //           ["The Godfather: Part II", 1974, 319352, 9.0, 3, "Crime"],
+    //           [
+    //             "The Good, the Bad and the Ugly",
+    //             1966,
+    //             213030,
+    //             8.9,
+    //             4,
+    //             "Western",
+    //           ],
+    //           ["Pulp fiction", 1994, 533848, 8.9, 5, "Crime"],
+    //           ["12 Angry Men", 1957, 164558, 8.9, 6, "Western"],
+    //         ],
+    //         rowHeaders: false,
+    //         columnSorting: true,
+    //         colHeaders: [
+    //           "Film title",
+    //           "Released",
+    //           "Votes",
+    //           "Rating",
+    //           "Rank",
+    //           "Category",
+    //         ],
+    //         width: "100%",
+    //         height: "100%",
+    //         licenseKey: "non-commercial-and-evaluation", // for non-commercial use only
+    //       });
+    //     } catch (e) {
+    //       console.log(id, e);
+    //     }
+    //   },
+    //   remove: (object) => object?.destroy(),
+    // },
     // {
     //   type: "webix",
     //   render: (id) => {
@@ -198,6 +198,98 @@ TW.Runtime.Widgets.grid_library = function () {
     //   },
     //   remove: (object) => console.log(object),
     // },
+    {
+      type: "toast",
+      render: (id) => {
+        new tui.Grid({
+          el: document.getElementById(id),
+          data: [
+            {
+              "Film title": "The Shawshank Redemption",
+              Released: 1994,
+              Votes: 678790,
+              Rating: 9.2,
+              Rank: 1,
+              Category: "Thriller",
+            },
+            {
+              "Film title": "The Godfather",
+              Released: 1972,
+              Votes: 511495,
+              Rating: 9.2,
+              Rank: 2,
+              Category: "Crime",
+            },
+            {
+              "Film title": "The Godfather: Part II",
+              Released: 1974,
+              Votes: 319352,
+              Rating: 9.0,
+              Rank: 3,
+              Category: "Crime",
+            },
+            {
+              "Film title": "The Good, the Bad and the Ugly",
+              Released: 1966,
+              Votes: 213030,
+              Rating: 8.9,
+              Rank: 4,
+              Category: "Western",
+            },
+            {
+              "Film title": "Pulp fiction",
+              Released: 1994,
+              Votes: 533848,
+              Rating: 8.9,
+              Rank: 5,
+              Category: "Crime",
+            },
+            {
+              "Film title": "12 Angry Men",
+              Released: 1957,
+              Votes: 164558,
+              Rating: 8.9,
+              Rank: 6,
+              Category: "Western",
+            },
+          ],
+          scrollX: false,
+          scrollY: false,
+          columns: [
+            {
+              header: "Film title",
+              name: "Film title",
+              sortable: true,
+            },
+            {
+              header: "Released",
+              name: "Released",
+              sortable: true,
+            },
+            {
+              header: "Votes",
+              name: "Votes",
+              sortable: true,
+            },
+            {
+              header: "Rating",
+              name: "Rating",
+              sortable: true,
+            },
+            {
+              header: "Rank",
+              name: "Rank",
+              sortable: true,
+            },
+            {
+              header: "Category",
+              name: "Category",
+              sortable: true,
+            },
+          ],
+        });
+      },
+    },
   ];
 
   this.renderHtml = function () {
@@ -205,11 +297,13 @@ TW.Runtime.Widgets.grid_library = function () {
 
     return `<div class='widget-content widget-grid_library'>
 		
-		<div id="${id}_aggrid" class="ag-theme-alpine" style="width: 100%; height: 100%; display: none"></div>
+		<div id="${id}_aggrid" class="ag-theme-alpine display-hidden" style="width: 100%; height: 100%;"></div>
 
-        <div id="${id}_handsontable" style="width: 100%; height: 100%;"></div>
+    <div id="${id}_handsontable" class="display-hidden" style="width: 100%; height: 100%;"></div>
 
-		<div id="${id}_webix" style="width: 100%; height: 100%; display: none"></div>
+		<div id="${id}_webix" class="display-hidden" style="width: 100%; height: 100%;"></div>
+
+		<div id="${id}_toast" style="width: 100%; height: 100%;"></div>
 
 	</div>`;
   };
@@ -240,16 +334,15 @@ TW.Runtime.Widgets.grid_library = function () {
     this.renderGrid();
 
     const gridtype = this.getProperty("Grid-Type");
-    this.displayGrid(gridtype ? gridtype : "handsontable");
+    //this.displayGrid(gridtype ? gridtype : "toast");
   };
 
   // this is called on your widget anytime bound data changes
   this.updateProperty = function (updatePropertyInfo) {
     if (updatePropertyInfo.TargetProperty === "Grid-Type") {
       const gridtype = updatePropertyInfo.SinglePropertyValue;
-      if (gridtype !== "handsontable") return;
       this.setProperty("Grid-Type", gridtype);
-      this.displayGrid(gridtype);
+      // this.displayGrid(gridtype);
     }
   };
 };
