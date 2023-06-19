@@ -1,177 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Entities>
     <ExtensionPackages>
-        <ExtensionPackage
-         dependsOn=""
-         description=""
-         haCompatible="false"
-         minimumThingWorxVersion="9.3.0"
-         name="sspoc"
-         packageVersion="4.0.0"
-         vendor=""></ExtensionPackage>
+        <ExtensionPackage dependsOn="" description="" haCompatible="false" minimumThingWorxVersion="9.3.0" name="sspoc" packageVersion="4.0.0" vendor=""></ExtensionPackage>
     </ExtensionPackages>
     <Widgets>
-        <Widget
-         name="jira">
+        <Widget name="jira">
             <UIResources>
-                <FileResource
-                 description=""
-                 file="jira.ide.js"
-                 isDevelopment="true"
-                 isRuntime="false"
-                 type="JS"></FileResource>
-                <FileResource
-                 description=""
-                 file="jira.ide.css"
-                 isDevelopment="true"
-                 isRuntime="false"
-                 type="CSS"></FileResource>
-                <FileResource
-                 description=""
-                 file="jira.runtime.js"
-                 isDevelopment="false"
-                 isRuntime="true"
-                 type="JS"></FileResource>
-                <FileResource
-                 description=""
-                 file="jira.runtime.css"
-                 isDevelopment="false"
-                 isRuntime="true"
-                 type="CSS"></FileResource>
+                <FileResource description="" file="jira.ide.js" isDevelopment="true" isRuntime="false" type="JS"></FileResource>
+                <FileResource description="" file="jira.ide.css" isDevelopment="true" isRuntime="false" type="CSS"></FileResource>
+                <FileResource description="" file="jira.runtime.js" isDevelopment="false" isRuntime="true" type="JS"></FileResource>
+                <FileResource description="" file="jira.runtime.css" isDevelopment="false" isRuntime="true" type="CSS"></FileResource>
             </UIResources>
         </Widget>
-        <Widget
-         name="spotfire">
+        <Widget name="spotfire">
             <UIResources>
-                <FileResource
-                 description=""
-                 file="spotfire.ide.js"
-                 isDevelopment="true"
-                 isRuntime="false"
-                 type="JS"></FileResource>
-                <FileResource
-                 description=""
-                 file="spotfire.ide.css"
-                 isDevelopment="true"
-                 isRuntime="false"
-                 type="CSS"></FileResource>
-                <FileResource
-                 description=""
-                 file="spotfire.runtime.js"
-                 isDevelopment="false"
-                 isRuntime="true"
-                 type="JS"></FileResource>
-                <FileResource
-                 description=""
-                 file="spotfire.runtime.css"
-                 isDevelopment="false"
-                 isRuntime="true"
-                 type="CSS"></FileResource>
+                <FileResource description="" file="spotfire.ide.js" isDevelopment="true" isRuntime="false" type="JS"></FileResource>
+                <FileResource description="" file="spotfire.ide.css" isDevelopment="true" isRuntime="false" type="CSS"></FileResource>
+                <FileResource description="" file="spotfire.runtime.js" isDevelopment="false" isRuntime="true" type="JS"></FileResource>
+                <FileResource description="" file="spotfire.runtime.css" isDevelopment="false" isRuntime="true" type="CSS"></FileResource>
             </UIResources>
         </Widget>
-        <Widget
-         name="watermark">
+        <Widget name="watermark">
             <UIResources>
-                <FileResource
-                 description=""
-                 file="watermark.ide.js"
-                 isDevelopment="true"
-                 isRuntime="false"
-                 type="JS"></FileResource>
-                <FileResource
-                 description=""
-                 file="watermark.ide.css"
-                 isDevelopment="true"
-                 isRuntime="false"
-                 type="CSS"></FileResource>
-                <FileResource
-                 description=""
-                 file="watermark.runtime.js"
-                 isDevelopment="false"
-                 isRuntime="true"
-                 type="JS"></FileResource>
-                <FileResource
-                 description=""
-                 file="watermark.runtime.css"
-                 isDevelopment="false"
-                 isRuntime="true"
-                 type="CSS"></FileResource>
+                <FileResource description="" file="watermark.ide.js" isDevelopment="true" isRuntime="false" type="JS"></FileResource>
+                <FileResource description="" file="watermark.ide.css" isDevelopment="true" isRuntime="false" type="CSS"></FileResource>
+                <FileResource description="" file="watermark.runtime.js" isDevelopment="false" isRuntime="true" type="JS"></FileResource>
+                <FileResource description="" file="watermark.runtime.css" isDevelopment="false" isRuntime="true" type="CSS"></FileResource>
             </UIResources>
         </Widget>
-        <Widget
-         name="grid_library">
+        <Widget name="grid_library">
             <UIResources>
-                <FileResource
-                 description="grid_library"
-                 file="./js/handsontable/handsontable.full.min.css"
-                 isDevelopment="true"
-                 isRuntime="true"
-                 type="CSS"></FileResource>
-                <FileResource
-                 description="grid_library"
-                 file="./js/handsontable/handsontable.full.min.js"
-                 isDevelopment="true"
-                 isRuntime="true"
-                 type="JS"></FileResource>
-                <FileResource
-                 description=""
-                 file="grid_library.ide.js"
-                 isDevelopment="true"
-                 isRuntime="false"
-                 type="JS"></FileResource>
-                <FileResource
-                 description=""
-                 file="grid_library.ide.css"
-                 isDevelopment="true"
-                 isRuntime="false"
-                 type="CSS"></FileResource>
-                <FileResource
-                 description=""
-                 file="grid_library.runtime.js"
-                 isDevelopment="false"
-                 isRuntime="true"
-                 type="JS"></FileResource>
-                <FileResource
-                 description=""
-                 file="grid_library.runtime.css"
-                 isDevelopment="false"
-                 isRuntime="true"
-                 type="CSS"></FileResource>
+                <FileResource description="grid_library" file="./js/handsontable/handsontable.full.min.css" isDevelopment="true" isRuntime="true" type="CSS"></FileResource>
+                <FileResource description="grid_library" file="./js/handsontable/handsontable.full.min.js" isDevelopment="true" isRuntime="true" type="JS"></FileResource>
+                <FileResource description="" file="grid_library.ide.js" isDevelopment="true" isRuntime="false" type="JS"></FileResource>
+                <FileResource description="" file="grid_library.ide.css" isDevelopment="true" isRuntime="false" type="CSS"></FileResource>
+                <FileResource description="" file="grid_library.runtime.js" isDevelopment="false" isRuntime="true" type="JS"></FileResource>
+                <FileResource description="" file="grid_library.runtime.css" isDevelopment="false" isRuntime="true" type="CSS"></FileResource>
             </UIResources>
         </Widget>
-        <Widget
-         name="diagram">
+        <Widget name="diagram">
             <UIResources>
-                <FileResource
-                 description="go"
-                 file="./js/go.js"
-                 isDevelopment="true"
-                 isRuntime="true"
-                 type="JS"></FileResource>
-                <FileResource
-                 description=""
-                 file="diagram.ide.js"
-                 isDevelopment="true"
-                 isRuntime="false"
-                 type="JS"></FileResource>
-                <FileResource
-                 description=""
-                 file="diagram.ide.css"
-                 isDevelopment="true"
-                 isRuntime="false"
-                 type="CSS"></FileResource>
-                <FileResource
-                 description=""
-                 file="diagram.runtime.js"
-                 isDevelopment="false"
-                 isRuntime="true"
-                 type="JS"></FileResource>
-                <FileResource
-                 description=""
-                 file="diagram.runtime.css"
-                 isDevelopment="false"
-                 isRuntime="true"
-                 type="CSS"></FileResource>
+                <FileResource description="go" file="./js/go.js" isDevelopment="true" isRuntime="true" type="JS"></FileResource>
+                <FileResource description="" file="diagram.ide.js" isDevelopment="true" isRuntime="false" type="JS"></FileResource>
+                <FileResource description="" file="diagram.ide.css" isDevelopment="true" isRuntime="false" type="CSS"></FileResource>
+                <FileResource description="" file="diagram.runtime.js" isDevelopment="false" isRuntime="true" type="JS"></FileResource>
+                <FileResource description="" file="diagram.runtime.css" isDevelopment="false" isRuntime="true" type="CSS"></FileResource>
             </UIResources>
         </Widget>
     </Widgets>

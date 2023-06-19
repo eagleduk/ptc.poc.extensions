@@ -8,21 +8,6 @@
     <title>Document</title>
 
     <style>
-        @import url("https://code.highcharts.com/css/highcharts.css");
-
-        * {
-            margin: 0;
-        }
-
-
-        #container {
-            margin: 1em auto;
-        }
-
-        .highcharts-treegrid-node-level-1 {
-            font-size: 13px;
-            font-weight: bold;
-        }
     </style>
 </head>
 
@@ -33,107 +18,363 @@
     <div id="container"></div>
 
     <script type="text/javascript">
-        var today = new Date(),
-            day = 1000 * 60 * 60 * 24;
-
-        // Set to 00:00:00:000 today
-        today.setUTCHours(0);
-        today.setUTCMinutes(0);
-        today.setUTCSeconds(0);
-        today.setUTCMilliseconds(0);
-
-
         // THE CHART
         Highcharts.ganttChart('container', {
-            chart: {
-                styledMode: true
+            "plotOptions": {
+                "series": {
+                    "animation": false
+                }
             },
-            title: {
-                text: ''
+            "yAxis": {
+                "categories": data,
+                labels: {
+                    format: "{value}"
+                }
             },
-            xAxis: {
-                min: today.getTime() - (2 * day),
-                max: today.getTime() + (32 * day)
-            },
-            accessibility: {
-                keyboardNavigation: {
-                    seriesNavigation: {
-                        mode: 'serialize'
+            "exporting": false,
+            "xAxis": [
+                {
+                    "min": 1514764800000,
+                    "max": 1640908800000,
+                    "units": [
+                        [
+                            "month",
+                            [
+                                1
+                            ]
+                        ]
+                    ],
+                    "type": "datetime",
+                    dateTimeLabelFormats: {
+                        month: '%b',
                     }
                 },
-                point: {
-                    descriptionFormatter: function (point) {
-                        var dependency = point.dependency &&
-                            point.series.chart.get(point.dependency).name,
-                            dependsOn = dependency ? ' Depends on ' + dependency + '.' : '';
-
-                        return Highcharts.format(
-                            '{point.yCategory}. Start {point.x:%Y-%m-%d}, end {point.x2:%Y-%m-%d}.{dependsOn}',
-                            { point, dependsOn }
-                        );
-                    }
+                {
+                    "min": 1514764800000,
+                    "max": 1640908800000,
+                    "type": "datetime"
                 }
+            ],
+            "legend": {
+                "symbolHeight": 0,
+                "navigation": {
+                    "enabled": false
+                },
+                "useHTML": true,
+                "labelFormat": "<div class=\"customhighgantt legend-labels{index}\"> {name}</div>",
+                "align": "left",
+                "itemMarginTop": -10,
+                "squareSymbol": false,
+                "symbolWidth": 0,
+                "enabled": true
             },
-            lang: {
-                accessibility: {
-                    axis: {
-                        xAxisDescriptionPlural: 'The chart has a two-part X axis showing time in both week numbers and days.'
-                    }
+            "series": [
+                {
+                    "dataLabels": {
+                        "enabled": false
+                    },
+                    "data": [
+                        {
+                            "color": "rgb(200, 165, 240)",
+                            "start": 1528779050000,
+                            "y": 0,
+                            "end": 1587531050000,
+                            "completed": {
+                                "amount": 0.7,
+                                "fill": "rgb(230, 210, 250)"
+                            }
+                        },
+                        {
+                            "color": "rgb(200, 165, 240)",
+                            "start": 1591678250000,
+                            "y": 5,
+                            "end": 1635310250000,
+                            "completed": {
+                                "amount": 1,
+                                "fill": "rgb(230, 210, 250)"
+                            }
+                        }
+                    ],
+                    "pointWidth": 12,
+                    "enableMouseTracking": false,
+                    "showInLegend": false
+                },
+                {
+                    "borderColor": "rgb(84, 79, 197)",
+                    "color": "rgb(84, 79, 197)",
+                    "data": [
+                        {
+                            "milestone": true,
+                            "color": "transparent",
+                            "start": 1534291200000,
+                            "y": 1,
+                            "id": "milestone1"
+                        },
+                        {
+                            "milestone": true,
+                            "color": "transparent",
+                            "start": 1592179200000,
+                            "y": 2,
+                            "id": "milestone2"
+                        },
+                        {
+                            "milestone": true,
+                            "color": "transparent",
+                            "start": 1579046400000,
+                            "y": 4,
+                            "id": "milestone3"
+                        }
+                    ],
+                    "name": "계획과제 등제"
+                },
+                {
+                    "color": "rgb(84, 79, 197)",
+                    "data": [
+                        {
+                            "marker": {
+                                "symbol": "url(../Common/extensions/CustomHighChart/ui/customhighgantt/images/triangle.svg)",
+                                "width": 30,
+                                "height": 30
+                            },
+                            "x": 1529039725000,
+                            "y": 0,
+                            "id": "pka1"
+                        },
+                        {
+                            "marker": {
+                                "symbol": "url(../Common/extensions/CustomHighChart/ui/customhighgantt/images/triangle.svg)",
+                                "width": 30,
+                                "height": 30
+                            },
+                            "x": 1597244400000,
+                            "y": 3,
+                            "id": "pk2"
+                        }
+                    ],
+                    "name": "PKA",
+                    "type": "scatter"
+                },
+                {
+                    "color": "rgb(84, 79, 197)",
+                    "data": [
+                        {
+                            "marker": {
+                                "symbol": "url(../Common/extensions/CustomHighChart/ui/customhighgantt/images/circle.svg)",
+                                "width": 30,
+                                "height": 30
+                            },
+                            "x": 1589348071000,
+                            "y": 4,
+                            "id": "pia1"
+                        },
+                        {
+                            "marker": {
+                                "symbol": "url(../Common/extensions/CustomHighChart/ui/customhighgantt/images/circle.svg)",
+                                "width": 30,
+                                "height": 30
+                            },
+                            "x": 1608788071000,
+                            "y": 5,
+                            "id": "pia2"
+                        }
+                    ],
+                    "name": "PIA",
+                    "type": "scatter"
+                },
+                {
+                    "color": "rgb(84, 79, 197)",
+                    "data": [
+                        {
+                            "dataLabels": {
+                                "padding": 20,
+                                "verticalAlign": "middle",
+                                "useHTML": true,
+                                "format": "<div style='font-size: 14px; font-weight: normal;'><span style='font-weight: bold;'>* PRA : </span><span > 2020/5/20 </span></div>",
+                                "align": "left",
+                                "inside": false,
+                                "enabled": true
+                            },
+                            "marker": {
+                                "symbol": "url(../Common/extensions/CustomHighChart/ui/customhighgantt/images/square_100.svg)",
+                                "width": 30,
+                                "height": 30
+                            },
+                            "x": 1589986800000,
+                            "y": 5,
+                            "id": "pra7",
+                            "connect": []
+                        },
+                        {
+                            "marker": {
+                                "symbol": "url(../Common/extensions/CustomHighChart/ui/customhighgantt/images/square_50.svg)",
+                                "width": 30,
+                                "height": 30
+                            },
+                            "x": 1539754706000,
+                            "y": 2,
+                            "id": "pra4",
+                            "connect": [
+                                {
+                                    "endMarker": {
+                                        "verticalAlign": "top",
+                                        "lineColor": "green",
+                                        "enabled": true
+                                    },
+                                    "startMarker": {
+                                        "verticalAlign": "top"
+                                    },
+                                    "lineColor": "green",
+                                    "to": "pra5",
+                                    "subColor": "#ede132",
+                                    "type": "simpleConnect"
+                                }
+                            ]
+                        },
+                        {
+                            "marker": {
+                                "symbol": "url(../Common/extensions/CustomHighChart/ui/customhighgantt/images/square_50.svg)",
+                                "width": 30,
+                                "height": 30
+                            },
+                            "x": 1523943506000,
+                            "y": 2,
+                            "id": "pra5",
+                            "connect": [
+                                {
+                                    "endMarker": {
+                                        "verticalAlign": "bottom",
+                                        "lineColor": "green",
+                                        "enabled": true
+                                    },
+                                    "startMarker": {
+                                        "verticalAlign": "bottom"
+                                    },
+                                    "lineColor": "green",
+                                    "to": "pra6",
+                                    "subColor": "#ede132",
+                                    "type": "simpleConnect"
+                                }
+                            ]
+                        },
+                        {
+                            "dataLabels": {
+                                "padding": 20,
+                                "verticalAlign": "middle",
+                                "useHTML": true,
+                                "format": "<div style='font-size: 14px; font-weight: normal;'><span style='font-weight: bold;'>* PRA : </span><span > 2018/10/17 </span> → <span > 2018/4/17 </span> → <span > 2019/4/25 </span></div>",
+                                "align": "left",
+                                "inside": false,
+                                "enabled": true
+                            },
+                            "marker": {
+                                "symbol": "url(../Common/extensions/CustomHighChart/ui/customhighgantt/images/square_100.svg)",
+                                "width": 30,
+                                "height": 30
+                            },
+                            "x": 1556170706000,
+                            "y": 2,
+                            "id": "pra6",
+                            "connect": [
+                                {
+                                    "endMarker": {
+                                        "color": "red",
+                                        "lineColor": "red",
+                                        "enabled": true,
+                                        "lineWidth": 3
+                                    },
+                                    "dashStyle": "ShortDot",
+                                    "startMarker": {},
+                                    "lineColor": "red",
+                                    "to": "pra7",
+                                    "type": "straight",
+                                    "subColor": "#ede132",
+                                    "lineWidth": 3
+                                }
+                            ]
+                        },
+                        {
+                            "marker": {
+                                "symbol": "url(../Common/extensions/CustomHighChart/ui/customhighgantt/images/square_50.svg)",
+                                "width": 30,
+                                "height": 30
+                            },
+                            "x": 1523890800000,
+                            "y": 1,
+                            "id": "pra1",
+                            "connect": [
+                                {
+                                    "endMarker": {
+                                        "verticalAlign": "top",
+                                        "lineColor": "green",
+                                        "enabled": true
+                                    },
+                                    "startMarker": {
+                                        "verticalAlign": "top"
+                                    },
+                                    "lineColor": "green",
+                                    "to": "pra2",
+                                    "subColor": "#ede132",
+                                    "type": "simpleConnect"
+                                }
+                            ]
+                        },
+                        {
+                            "marker": {
+                                "symbol": "url(../Common/extensions/CustomHighChart/ui/customhighgantt/images/square_50.svg)",
+                                "width": 30,
+                                "height": 30
+                            },
+                            "x": 1539754706000,
+                            "y": 1,
+                            "id": "pra2",
+                            "connect": [
+                                {
+                                    "endMarker": {
+                                        "verticalAlign": "bottom",
+                                        "lineColor": "green",
+                                        "enabled": true
+                                    },
+                                    "startMarker": {
+                                        "verticalAlign": "bottom"
+                                    },
+                                    "lineColor": "green",
+                                    "to": "pra3",
+                                    "subColor": "#ede132",
+                                    "type": "simpleConnect"
+                                }
+                            ]
+                        },
+                        {
+                            "dataLabels": {
+                                "padding": 20,
+                                "verticalAlign": "middle",
+                                "useHTML": true,
+                                "format": "<div style='font-size: 14px; font-weight: normal;'><span style='font-weight: bold;'>* PRA : </span><span > 2018/4/16 </span> → <span style=\"color: red;\"> 2018/10/17 </span> → <span > 2019/2/20 </span></div>",
+                                "align": "left",
+                                "inside": false,
+                                "enabled": true
+                            },
+                            "marker": {
+                                "symbol": "url(../Common/extensions/CustomHighChart/ui/customhighgantt/images/square_100.svg)",
+                                "width": 30,
+                                "height": 30
+                            },
+                            "x": 1550641106000,
+                            "y": 1,
+                            "id": "pra3",
+                            "connect": []
+                        }
+                    ],
+                    "name": "PRA",
+                    "type": "scatter"
                 }
+            ],
+            "title": {
+                "text": ""
             },
-            series: [{
-                name: 'Project 1',
-                data: [{
-                    name: 'Planning',
-                    id: 'planning',
-                    start: today.getTime(),
-                    end: today.getTime() + (20 * day)
-                }, {
-                    name: 'Requirements',
-                    id: 'requirements',
-                    parent: 'planning',
-                    start: today.getTime(),
-                    end: today.getTime() + (5 * day)
-                }, {
-                    name: 'Design',
-                    id: 'design',
-                    dependency: 'requirements',
-                    parent: 'planning',
-                    start: today.getTime() + (3 * day),
-                    end: today.getTime() + (20 * day)
-                }, {
-                    name: 'Layout',
-                    id: 'layout',
-                    parent: 'design',
-                    start: today.getTime() + (3 * day),
-                    end: today.getTime() + (10 * day)
-                }, {
-                    name: 'Graphics',
-                    parent: 'design',
-                    dependency: 'layout',
-                    start: today.getTime() + (10 * day),
-                    end: today.getTime() + (20 * day)
-                }, {
-                    name: 'Develop',
-                    id: 'develop',
-                    start: today.getTime() + (5 * day),
-                    end: today.getTime() + (30 * day)
-                }, {
-                    name: 'Create unit tests',
-                    id: 'unit_tests',
-                    dependency: 'requirements',
-                    parent: 'develop',
-                    start: today.getTime() + (5 * day),
-                    end: today.getTime() + (18 * day)
-                }, {
-                    name: 'Implement',
-                    id: 'implement',
-                    dependency: 'unit_tests',
-                    parent: 'develop',
-                    start: today.getTime() + (8 * day),
-                    end: today.getTime() + (30 * day)
-                }]
-            }]
+            "chart": {
+                "animation": false
+            }
         });
 
     </script>
